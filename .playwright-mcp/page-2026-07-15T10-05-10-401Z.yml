@@ -1,0 +1,255 @@
+- generic [active] [ref=f81e1]:
+  - generic [ref=f81e2]:
+    - generic [ref=f81e3]:
+      - banner [ref=f81e4]:
+        - generic [ref=f81e5]:
+          - link [ref=f81e7] [cursor=pointer]:
+            - /url: /
+            - img "Render" [ref=f81e8]
+          - button "A Andrés's workspace" [ref=f81e12] [cursor=pointer]:
+            - generic [ref=f81e13]:
+              - generic [ref=f81e14]: A
+              - generic "Andrés's workspace" [ref=f81e15]
+        - generic [ref=f81e20]:
+          - navigation [ref=f81e21]:
+            - list [ref=f81e22]:
+              - listitem [ref=f81e23]:
+                - link "My project" [ref=f81e24] [cursor=pointer]:
+                  - /url: /project/prj-d9bll1gqmsqc7395ct9g
+                - button [ref=f81e32] [cursor=pointer]
+                - text: /
+              - listitem [ref=f81e35]:
+                - link "Production" [ref=f81e36] [cursor=pointer]:
+                  - /url: /project/prj-d9bll1gqmsqc7395ct9g/environment/evm-d9bll1gqmsqc7395cta0
+                - button [ref=f81e53] [cursor=pointer]
+                - text: /
+              - listitem [ref=f81e56]:
+                - link "quicknotes" [ref=f81e57] [cursor=pointer]:
+                  - /url: /web/srv-d9bll1r7uimc73aon8ng
+                - button [ref=f81e63] [cursor=pointer]
+          - button "Search Ctrl + K" [ref=f81e67] [cursor=pointer]:
+            - text: Search
+            - generic [ref=f81e71]:
+              - generic [ref=f81e74]: Ctrl
+              - generic [ref=f81e75]: +
+              - generic [ref=f81e76]: K
+              - generic [ref=f81e77]: K
+        - generic [ref=f81e78]:
+          - button "New" [ref=f81e80] [cursor=pointer]
+          - button "Upgrade" [ref=f81e86] [cursor=pointer]
+          - button [ref=f81e92] [cursor=pointer]:
+            - img "Help" [ref=f81e93]
+          - button "a" [ref=f81e98] [cursor=pointer]
+      - generic [ref=f81e101]:
+        - navigation [ref=f81e102]:
+          - separator [ref=f81e103]
+          - generic [ref=f81e104]:
+            - generic [ref=f81e105]:
+              - link "Environment" [ref=f81e106] [cursor=pointer]:
+                - /url: /project/prj-d9bll1gqmsqc7395ct9g/environment/evm-d9bll1gqmsqc7395cta0
+              - generic [ref=f81e110]: quicknotes
+            - generic [ref=f81e114]:
+              - list [ref=f81e115]:
+                - listitem [ref=f81e116]:
+                  - link "Events" [ref=f81e117] [cursor=pointer]:
+                    - /url: /web/srv-d9bll1r7uimc73aon8ng/events
+                - listitem [ref=f81e126]:
+                  - link "Settings" [ref=f81e127] [cursor=pointer]:
+                    - /url: /web/srv-d9bll1r7uimc73aon8ng/settings
+              - generic [ref=f81e132]:
+                - generic [ref=f81e133]: Monitor
+                - list "Monitor" [ref=f81e134]:
+                  - listitem [ref=f81e135]:
+                    - link "Logs" [ref=f81e136] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/logs
+                  - listitem [ref=f81e143]:
+                    - link "Metrics" [ref=f81e144] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/metrics
+              - generic [ref=f81e148]:
+                - generic [ref=f81e149]: Manage
+                - list "Manage" [ref=f81e150]:
+                  - listitem [ref=f81e151]:
+                    - link "Environment" [ref=f81e152] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/env
+                  - listitem [ref=f81e158]:
+                    - link "Shell" [ref=f81e159] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/shell
+                      - generic [ref=f81e164]:
+                        - generic [ref=f81e165]: Shell
+                        - status [ref=f81e168]
+                  - listitem [ref=f81e171]:
+                    - link "Scaling" [ref=f81e172] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/scaling
+                      - generic [ref=f81e178]:
+                        - generic [ref=f81e179]: Scaling
+                        - status [ref=f81e182]
+                  - listitem [ref=f81e185]:
+                    - link "Previews" [ref=f81e186] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/previews
+                  - listitem [ref=f81e192]:
+                    - link "Disk" [ref=f81e193] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/disks
+                      - generic [ref=f81e199]:
+                        - generic [ref=f81e200]: Disk
+                        - status [ref=f81e203]
+                  - listitem [ref=f81e206]:
+                    - link "One-Off Jobs" [ref=f81e207] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/jobs
+                      - generic [ref=f81e214]:
+                        - generic [ref=f81e215]: One-Off Jobs
+                        - status [ref=f81e218]
+          - generic [ref=f81e222]:
+            - button "Collapse items" [expanded] [ref=f81e223] [cursor=pointer]
+            - list "Footer navigation" [ref=f81e226]:
+              - listitem [ref=f81e227]:
+                - link "Changelog" [ref=f81e228] [cursor=pointer]:
+                  - /url: https://render.com/changelog
+              - listitem [ref=f81e235]:
+                - link "Invite a friend" [ref=f81e236] [cursor=pointer]:
+                  - /url: /invites
+              - listitem [ref=f81e240]:
+                - button "Contact support" [ref=f81e241] [cursor=pointer]
+            - link "Render Status" [ref=f81e248] [cursor=pointer]:
+              - /url: https://status.render.com
+        - generic [ref=f81e253]:
+          - banner [ref=f81e255]:
+            - generic [ref=f81e256]:
+              - generic [ref=f81e257]: Web Service
+              - generic [ref=f81e261]:
+                - heading "quicknotes Python 3 Free Upgrade your instance" [level=1] [ref=f81e263]:
+                  - generic [ref=f81e264]: quicknotes
+                  - generic [ref=f81e265]:
+                    - generic [ref=f81e266]: Python 3
+                    - link "Free" [ref=f81e267] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/plan
+                    - link [ref=f81e269] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/plan
+                - generic [ref=f81e274]:
+                  - button "Connect" [ref=f81e275] [cursor=pointer]
+                  - button "Manual Deploy" [ref=f81e279] [cursor=pointer]
+            - generic [ref=f81e285]:
+              - generic [ref=f81e287]:
+                - generic [ref=f81e288]: "Service ID:"
+                - generic "Service ID:" [ref=f81e289]:
+                  - generic [ref=f81e290]: srv-d9bll1r7uimc73aon8ng
+                  - button "Copy" [ref=f81e293] [cursor=pointer]
+              - generic [ref=f81e298]:
+                - img "GitHub" [ref=f81e300]
+                - link "tane994 / smart-notes main" [ref=f81e302] [cursor=pointer]:
+                  - /url: https://github.com/tane994/smart-notes/tree/main
+                  - generic [ref=f81e303]:
+                    - generic [ref=f81e304]: tane994 / smart-notes
+                    - generic [ref=f81e307]: main
+              - generic "Copy" [ref=f81e309]:
+                - link "https://quicknotes-0ed0.onrender.com" [ref=f81e311] [cursor=pointer]:
+                  - /url: https://quicknotes-0ed0.onrender.com
+                - button "Copy" [ref=f81e314] [cursor=pointer]
+          - main [ref=f81e318]:
+            - generic [ref=f81e319]:
+              - alert [ref=f81e320]:
+                - generic [ref=f81e328]:
+                  - generic [ref=f81e329]: Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more.
+                  - link "Upgrade now" [ref=f81e332] [cursor=pointer]:
+                    - /url: /web/srv-d9bll1r7uimc73aon8ng/plan
+              - textbox "Search deploys and commits" [ref=f81e335]
+              - generic [ref=f81e339]:
+                - heading "Deploy 2 deploys" [level=6] [ref=f81e340]:
+                  - generic [ref=f81e342]:
+                    - generic [ref=f81e343]: Deploy
+                    - generic "2 deploys" [ref=f81e344]: "2"
+                - list [ref=f81e345]:
+                  - listitem [ref=f81e346]:
+                    - link [ref=f81e350] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/deploys/dep-d9blmc28qa3s73aag9kg
+                      - img "Building" [ref=f81e351]
+                    - link [ref=f81e354] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/deploys/dep-d9blmc28qa3s73aag9kg
+                      - generic [ref=f81e355]:
+                        - term [ref=f81e356]: Deploy
+                        - definition [ref=f81e357]:
+                          - paragraph [ref=f81e358]: "Disable DEBUG for production Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+                        - term [ref=f81e359]: Trigger
+                        - definition [ref=f81e360]: Auto-Deploy
+                        - term [ref=f81e361]: Duration
+                        - definition [ref=f81e362]:
+                          - time [ref=f81e364]: 37,0s
+                    - generic:
+                      - generic:
+                        - generic:
+                          - link "5396875" [ref=f81e365] [cursor=pointer]:
+                            - /url: https://github.com/tane994/smart-notes/commit/5396875504ead6b6228ded5475aab6cd17e921a8
+                          - generic: •
+                        - generic:
+                          - paragraph:
+                            - generic: Deployed on
+                            - generic: July 15, 2026
+                            - generic: at
+                            - generic: 12:04:32 PM GMT+2
+                    - button [ref=f81e367] [cursor=pointer]
+                  - listitem [ref=f81e371]:
+                    - link [ref=f81e375] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/deploys/dep-d9bll2b7uimc73aon9u0
+                      - img "Live" [ref=f81e376]
+                    - link [ref=f81e378] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/deploys/dep-d9bll2b7uimc73aon9u0
+                      - generic [ref=f81e379]:
+                        - term [ref=f81e380]: Deploy
+                        - definition [ref=f81e381]:
+                          - paragraph [ref=f81e382]: "Initial commit: Django quicknotes app ready for Render deploy"
+                        - term [ref=f81e383]: Trigger
+                        - definition [ref=f81e384]: First Deploy
+                        - term [ref=f81e385]: Duration
+                        - definition [ref=f81e386]:
+                          - time [ref=f81e388]: 1m22s
+                    - generic:
+                      - generic:
+                        - generic:
+                          - link "30daa57" [ref=f81e389] [cursor=pointer]:
+                            - /url: https://github.com/tane994/smart-notes/commit/30daa570d15e0d706e6013f0beef257bda6f12d1
+                          - generic: •
+                        - generic:
+                          - paragraph:
+                            - generic: Deployed on
+                            - generic: July 15, 2026
+                            - generic: at
+                            - generic: 12:01:45 PM GMT+2
+    - generic:
+      - generic:
+        - generic: "0 services selected:"
+        - generic:
+          - generic:
+            - button:
+              - generic: Move
+      - generic:
+        - separator
+        - generic:
+          - generic:
+            - button
+  - generic [ref=f81e392]:
+    - generic [ref=f81e393]:
+      - heading "12:05:04 Preparing containers for initialization ... 12:05:05 Starting the containers ... 12:05:06 Variables injected ... 12:05:07 Finalizing startup ..." [level=1] [ref=f81e395]:
+        - generic [ref=f81e407]:
+          - generic [ref=f81e408]:
+            - generic [ref=f81e409]: 12:05:04
+            - generic [ref=f81e410]: Preparing containers for initialization ...
+          - generic [ref=f81e411]:
+            - generic [ref=f81e412]: 12:05:05
+            - generic [ref=f81e413]: Starting the containers ...
+          - generic [ref=f81e414]:
+            - generic [ref=f81e415]: 12:05:06
+            - generic [ref=f81e416]: Variables injected ...
+          - generic [ref=f81e417]:
+            - generic [ref=f81e418]: 12:05:07
+            - generic [ref=f81e419]: Finalizing startup ...
+      - button "Close modal" [ref=f81e420] [cursor=pointer]
+    - generic [ref=f81e424]:
+      - paragraph [ref=f81e427]: quicknotes is live!
+      - paragraph [ref=f81e429]:
+        - text: Upgrade your workspace to collaborate with your team. Pro workspaces also get 14-day log retention, horizontal autoscaling,
+        - link "and more." [ref=f81e430] [cursor=pointer]:
+          - /url: https://render.com/pricing
+    - generic [ref=f81e432]:
+      - link [ref=f81e433] [cursor=pointer]:
+        - /url: https://quicknotes-0ed0.onrender.com
+      - link [ref=f81e438] [cursor=pointer]:
+        - /url: /billing/update-plan?plan=professional&next=/web/srv-d9bll1r7uimc73aon8ng/deploys

@@ -1,9 +1,6 @@
 from django.forms import ModelForm
 from quicknotes.models import Note
 
-from django.forms import ModelForm
-from quicknotes.models import Note
-
 class NoteForm(ModelForm):
     class Meta:
         # Use the 'Note' model as a template (blueprint) to automatically shape this form,

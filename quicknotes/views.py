@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from quicknotes.models import Note
 from quicknotes.forms import NoteForm
@@ -39,3 +39,7 @@ def delete(request, note_id):
         note = get_object_or_404(Note, pk=note_id)
         note.delete()
         return redirect('notes')
+    
+def api_notes(request):
+    data = list(Note.objects.values())
+    return JsonResponse({"notes": data})

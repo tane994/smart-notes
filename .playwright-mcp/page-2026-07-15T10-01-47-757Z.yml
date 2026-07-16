@@ -1,0 +1,201 @@
+- generic [active] [ref=f72e1]:
+  - generic [ref=f72e2]:
+    - generic [ref=f72e3]:
+      - banner [ref=f72e4]:
+        - generic [ref=f72e5]:
+          - link [ref=f72e7] [cursor=pointer]:
+            - /url: /
+            - img "Render" [ref=f72e8]
+          - button "A Andrés's workspace" [ref=f72e12] [cursor=pointer]:
+            - generic [ref=f72e13]:
+              - generic [ref=f72e14]: A
+              - generic "Andrés's workspace" [ref=f72e15]
+        - generic [ref=f72e20]:
+          - navigation [ref=f72e21]:
+            - list [ref=f72e22]:
+              - listitem [ref=f72e23]:
+                - link "My project" [ref=f72e861] [cursor=pointer]:
+                  - /url: /project/prj-d9bll1gqmsqc7395ct9g
+                - button [ref=f72e867] [cursor=pointer]
+                - text: /
+              - listitem [ref=f72e870]:
+                - link "Production" [ref=f72e871] [cursor=pointer]:
+                  - /url: /project/prj-d9bll1gqmsqc7395ct9g/environment/evm-d9bll1gqmsqc7395cta0
+                - button [ref=f72e888] [cursor=pointer]
+                - text: /
+              - listitem [ref=f72e891]:
+                - link "quicknotes" [ref=f72e892] [cursor=pointer]:
+                  - /url: /web/srv-d9bll1r7uimc73aon8ng
+                - button [ref=f72e898] [cursor=pointer]
+          - button "Search Ctrl + K" [ref=f72e35] [cursor=pointer]:
+            - text: Search
+            - generic [ref=f72e39]:
+              - generic [ref=f72e42]: Ctrl
+              - generic [ref=f72e43]: +
+              - generic [ref=f72e44]: K
+              - generic [ref=f72e45]: K
+        - generic [ref=f72e46]:
+          - button "New" [ref=f72e48] [cursor=pointer]
+          - button "Upgrade" [ref=f72e54] [cursor=pointer]
+          - button [ref=f72e60] [cursor=pointer]:
+            - img "Help" [ref=f72e61]
+          - button "a" [ref=f72e66] [cursor=pointer]
+      - generic [ref=f72e69]:
+        - navigation [ref=f72e901]:
+          - separator [ref=f72e902]
+          - generic [ref=f72e903]:
+            - generic [ref=f72e904]:
+              - link "Environment" [ref=f72e905] [cursor=pointer]:
+                - /url: /project/prj-d9bll1gqmsqc7395ct9g/environment/evm-d9bll1gqmsqc7395cta0
+              - generic [ref=f72e909]: quicknotes
+            - generic [ref=f72e913]:
+              - list [ref=f72e914]:
+                - listitem [ref=f72e915]:
+                  - link "Events" [ref=f72e916] [cursor=pointer]:
+                    - /url: /web/srv-d9bll1r7uimc73aon8ng/events
+                - listitem [ref=f72e925]:
+                  - link "Settings" [ref=f72e926] [cursor=pointer]:
+                    - /url: /web/srv-d9bll1r7uimc73aon8ng/settings
+              - generic [ref=f72e931]:
+                - generic [ref=f72e932]: Monitor
+                - list "Monitor" [ref=f72e933]:
+                  - listitem [ref=f72e934]:
+                    - link "Logs" [ref=f72e935] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/logs
+                  - listitem [ref=f72e942]:
+                    - link "Metrics" [ref=f72e943] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/metrics
+              - generic [ref=f72e947]:
+                - generic [ref=f72e948]: Manage
+                - list "Manage" [ref=f72e949]:
+                  - listitem [ref=f72e950]:
+                    - link "Environment" [ref=f72e951] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/env
+                  - listitem [ref=f72e957]:
+                    - link "Shell" [ref=f72e958] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/shell
+                      - generic [ref=f72e963]:
+                        - generic [ref=f72e964]: Shell
+                        - status [ref=f72e967]
+                  - listitem [ref=f72e970]:
+                    - link "Scaling" [ref=f72e971] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/scaling
+                      - generic [ref=f72e977]:
+                        - generic [ref=f72e978]: Scaling
+                        - status [ref=f72e981]
+                  - listitem [ref=f72e984]:
+                    - link "Previews" [ref=f72e985] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/previews
+                  - listitem [ref=f72e991]:
+                    - link "Disk" [ref=f72e992] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/disks
+                      - generic [ref=f72e998]:
+                        - generic [ref=f72e999]: Disk
+                        - status [ref=f72e1002]
+                  - listitem [ref=f72e1005]:
+                    - link "One-Off Jobs" [ref=f72e1006] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/jobs
+                      - generic [ref=f72e1013]:
+                        - generic [ref=f72e1014]: One-Off Jobs
+                        - status [ref=f72e1017]
+          - generic [ref=f72e1021]:
+            - button "Collapse items" [expanded] [ref=f72e1022] [cursor=pointer]
+            - list "Footer navigation" [ref=f72e1025]:
+              - listitem [ref=f72e1026]:
+                - link "Changelog" [ref=f72e1027] [cursor=pointer]:
+                  - /url: https://render.com/changelog
+              - listitem [ref=f72e1034]:
+                - link "Invite a friend" [ref=f72e1035] [cursor=pointer]:
+                  - /url: /invites
+              - listitem [ref=f72e1039]:
+                - button "Contact support" [ref=f72e1040] [cursor=pointer]
+            - link "Render Status" [ref=f72e1047] [cursor=pointer]:
+              - /url: https://status.render.com
+        - generic [ref=f72e1051]:
+          - banner [ref=f72e1053]:
+            - generic [ref=f72e1054]:
+              - generic [ref=f72e1055]: Web Service
+              - generic [ref=f72e1059]:
+                - heading "quicknotes Python 3 Free Upgrade your instance" [level=1] [ref=f72e1061]:
+                  - generic [ref=f72e1062]: quicknotes
+                  - generic [ref=f72e1063]:
+                    - generic [ref=f72e1064]: Python 3
+                    - link "Free" [ref=f72e1065] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/plan
+                    - link [ref=f72e1067] [cursor=pointer]:
+                      - /url: /web/srv-d9bll1r7uimc73aon8ng/plan
+                - generic [ref=f72e1072]:
+                  - button "Connect" [ref=f72e1073] [cursor=pointer]
+                  - button "Manual Deploy" [ref=f72e1077] [cursor=pointer]
+            - generic [ref=f72e1083]:
+              - generic [ref=f72e1085]:
+                - generic [ref=f72e1086]: "Service ID:"
+                - generic "Service ID:" [ref=f72e1087]:
+                  - generic [ref=f72e1088]: srv-d9bll1r7uimc73aon8ng
+                  - button "Copy" [ref=f72e1091] [cursor=pointer]
+              - generic [ref=f72e1096]:
+                - img "GitHub" [ref=f72e1098]
+                - link "tane994 / smart-notes main" [ref=f72e1100] [cursor=pointer]:
+                  - /url: https://github.com/tane994/smart-notes/tree/main
+                  - generic [ref=f72e1101]:
+                    - generic [ref=f72e1102]: tane994 / smart-notes
+                    - generic [ref=f72e1105]: main
+              - generic "Copy" [ref=f72e1107]:
+                - link "https://quicknotes-0ed0.onrender.com" [ref=f72e1109] [cursor=pointer]:
+                  - /url: https://quicknotes-0ed0.onrender.com
+                - button "Copy" [ref=f72e1112] [cursor=pointer]
+          - main [ref=f72e1116]:
+            - generic [ref=f72e1117]:
+              - alert [ref=f72e1118]:
+                - generic [ref=f72e1126]:
+                  - generic [ref=f72e1127]: Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more.
+                  - link "Upgrade now" [ref=f72e1130] [cursor=pointer]:
+                    - /url: /web/srv-d9bll1r7uimc73aon8ng/plan
+              - generic [ref=f72e1132]:
+                - generic [ref=f72e1133]:
+                  - generic [ref=f72e1134]:
+                    - generic [ref=f72e1135]: July 15, 2026 at 12:01 PM
+                    - generic [ref=f72e1136]: building
+                  - generic [ref=f72e1141]:
+                    - link "30daa57" [ref=f72e1142] [cursor=pointer]:
+                      - /url: https://github.com/tane994/smart-notes/commit/30daa570d15e0d706e6013f0beef257bda6f12d1
+                    - generic [ref=f72e1143]: "Initial commit: Django quicknotes app ready for Render deploy"
+                - button [ref=f72e1145] [cursor=pointer]
+              - generic [ref=f72e1149]:
+                - generic [ref=f72e1151]:
+                  - generic [ref=f72e1153]:
+                    - button "All logs" [ref=f72e1156] [cursor=pointer]
+                    - generic [ref=f72e1162]:
+                      - generic [ref=f72e1163]: Search
+                      - searchbox "Search" [ref=f72e1169]
+                    - button "Live tail" [ref=f72e1172] [cursor=pointer]
+                    - button [ref=f72e1185] [cursor=pointer]:
+                      - img "Maximize" [ref=f72e1186]
+                    - button [ref=f72e1191] [cursor=pointer]:
+                      - img "Options" [ref=f72e1192]
+                  - listbox [ref=f72e1196]:
+                    - img "Loading..." [ref=f72e1198]
+                - paragraph [ref=f72e1202]:
+                  - text: Need better ways to work with logs? Try the
+                  - link "Render CLI" [ref=f72e1203] [cursor=pointer]:
+                    - /url: https://render.com/docs/cli
+                  - text: ","
+                  - link "Render MCP Server" [ref=f72e1207] [cursor=pointer]:
+                    - /url: https://render.com/docs/mcp-server
+                  - text: ", or set up a"
+                  - link "log stream integration" [ref=f72e1208] [cursor=pointer]:
+                    - /url: https://render.com/docs/log-streams
+    - generic:
+      - generic:
+        - generic: "0 services selected:"
+        - generic:
+          - generic:
+            - button:
+              - generic: Move
+      - generic:
+        - separator
+        - generic:
+          - generic:
+            - button
+  - iframe [ref=f72e563]:
+    
