@@ -1,41 +1,29 @@
-from django.http import HttpResponse, Http404
-from django.shortcuts import redirect, render, get_object_or_404
+from django.http import HttpResponse, JsonResponse
 from quicknotes.models import Note
-from quicknotes.forms import NoteForm
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
+from quicknotes.serializers import NoteSerializer
 
 def home(request):
     return HttpResponse('Welcome Home')
-
-def notes(request):
-    data = Note.objects.all()
-    return render(request, 'quicknotes/index.html', {'notes': data, 'form': NoteForm})
-
-def note(request, note_id):
-    data = get_object_or_404(Note, pk=note_id)
-    note_form = NoteForm(instance=data)
-    if data:
-        return render(request, 'quicknotes/note.html', {'note': data, 'form': note_form})
     
-    raise Http404('Note not found.')
+# def api_notes(request):
+#     data = list(Note.objects.values())
+#     return JsonResponse({"notes": data})
 
-def add(request):
-    if request.method == 'POST':
-        form = NoteForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('notes')
+class NoteViewSet(ModelViewSet):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response({'data': serializer.data})
+    
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response({'data': serializer.data})
     
     
-def edit(request, note_id):
-    if request.method == 'POST':
-        note = get_object_or_404(Note, pk=note_id)
-        form = NoteForm(request.POST, instance=note)
-        if form.is_valid():
-            form.save()
-        return redirect('note', note_id=note.id)
-
-def delete(request, note_id):
-    if request.method == 'POST':
-        note = get_object_or_404(Note, pk=note_id)
-        note.delete()
-        return redirect('notes')
+    

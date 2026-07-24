@@ -1,0 +1,47 @@
+- generic [active] [ref=f63e1]:
+  - generic [ref=f63e2]:
+    - generic [ref=f63e3]:
+      - banner [ref=f63e4]:
+        - generic [ref=f63e5]:
+          - link [ref=f63e7] [cursor=pointer]:
+            - /url: /
+            - img "Render" [ref=f63e8]
+          - button "A Andrés's workspace" [ref=f63e12] [cursor=pointer]:
+            - generic [ref=f63e13]:
+              - generic [ref=f63e14]: A
+              - generic "Andrés's workspace" [ref=f63e15]
+        - generic [ref=f63e20]:
+          - navigation [ref=f63e21]:
+            - list [ref=f63e22]:
+              - listitem [ref=f63e23]:
+                - generic [ref=f63e24]: Projects
+          - button "Search Ctrl + K" [ref=f63e31] [cursor=pointer]:
+            - text: Search
+            - generic [ref=f63e35]:
+              - generic [ref=f63e38]: Ctrl
+              - generic [ref=f63e39]: +
+              - generic [ref=f63e40]: K
+              - generic [ref=f63e41]: K
+        - generic [ref=f63e42]:
+          - button "New" [ref=f63e44] [cursor=pointer]
+          - button "Upgrade" [ref=f63e50] [cursor=pointer]
+          - button [ref=f63e56] [cursor=pointer]:
+            - img "Help" [ref=f63e57]
+          - button "a" [ref=f63e62] [cursor=pointer]
+      - generic [ref=f63e68]:
+        - img "Loading..." [ref=f63e69]
+        - generic [ref=f63e72]: Loading...
+    - generic:
+      - generic:
+        - generic: "0 services selected:"
+        - generic:
+          - generic:
+            - button:
+              - generic: Move
+      - generic:
+        - separator
+        - generic:
+          - generic:
+            - button
+  - iframe [ref=f63e73]:
+    

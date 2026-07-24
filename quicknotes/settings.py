@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-eme-sb6juy5s(gv^7&g&qps45$0!xqft2d0afo@3-wr^qfn=2='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.onrender.com']
 
@@ -34,12 +34,14 @@ CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
 
 INSTALLED_APPS = [
     'quicknotes',
+    'quicknotes_site',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -77,9 +79,13 @@ WSGI_APPLICATION = 'quicknotes.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",         # Il DB predefinito creato da Docker
+        "USER": "postgres",         # L'utente predefinito
+        "PASSWORD": "password",     # La password trovata con 'docker exec'
+        "HOST": "127.0.0.1",
+        "PORT": "5431",             # La porta esposta su Windows
     }
 }
 
