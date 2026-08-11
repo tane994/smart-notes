@@ -1,11 +1,22 @@
-GET http://localhost:8000/api/notes
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg1OTQxMjkxLCJpYXQiOjE3ODU5NDA5OTEsImp0aSI6IjBjZDMwYTcxY2IzMjQwYjhiMTBiNTQ5NjA2OThlOWY0IiwidXNlcl9pZCI6IjEifQ.3x20UpmCa0Viu1R8iq4IyZCgyL_wgMOCsUzPvWKdXBQ
+@baseUrl = http://localhost:8000
 
-POST http://localhost:8000/api/auth/register/
+GET http://localhost:8000/api/notes
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2NDM4NTcwLCJpYXQiOjE3ODY0MzgyNzAsImp0aSI6IjY5NGU1OTc1YWJkNjQ0NGJiOGU2ZDQzYjkwYmI2Njk0IiwidXNlcl9pZCI6IjEifQ.NrmSYUmd9iGQ7-DRw3MLSgH1x92ka1dTBrEJl0RPDek
+### Register
+POST {{baseUrl}}/api/auth/register/
 Content-Type: application/json
 
 {
-    'username': 'Andtan',
-    'email': 'andtan@tantan.com',
-    'password': 'password123'
+    "username": "Andtan",
+    "email": "andtan@tantan.com",
+    "password": "password123"
+}
+
+### Login
+POST {{baseUrl}}/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "Andtan",
+    "password": "password123"
 }
