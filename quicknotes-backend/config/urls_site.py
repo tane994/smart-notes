@@ -1,5 +1,5 @@
 from django.urls import path
-from quicknotes import views_site as views
+from config import views_site as views
 
 urlpatterns = [
     path('', views.notes, name='notes'),

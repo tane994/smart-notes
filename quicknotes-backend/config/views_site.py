@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404, JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
-from quicknotes.models import Note
+from config.models import Note
 from quicknotes_site.forms import NoteForm
 
 def notes(request):

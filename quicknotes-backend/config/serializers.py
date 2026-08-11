@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
-from quicknotes.models import Note, Collection
+from config.models import Note, Collection
 from django.contrib.auth.models import User
 
 class UserSerializer(ModelSerializer):
