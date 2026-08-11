@@ -82,24 +82,18 @@ WSGI_APPLICATION = 'quicknotes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DB_NAME = os.environ.get('DB_NAME')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_HOST = os.environ.get('DB_HOST')
-DB_PORT = os.environ.get('DB_PORT')
-
-print(DB_NAME)
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": DB_NAME,         # Il DB predefinito creato da Docker
-        "USER": DB_USER,         # L'utente predefinito
-        "PASSWORD": DB_PASSWORD,     # La password trovata con 'docker exec'
-        "HOST": DB_HOST,
-        "PORT": DB_PORT,             # La porta esposta su Windows
+        "NAME": os.environ.get('DB_NAME'),
+        "USER": os.environ.get('DB_USER'),
+        "PASSWORD": os.environ.get('DB_PASSWORD'),
+        "HOST": os.environ.get('DB_HOST'),
+        "PORT": os.environ.get('DB_PORT'),
     }
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Password validation
