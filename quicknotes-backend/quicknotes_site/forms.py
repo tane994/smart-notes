@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from quicknotes.models import Note
+from config.models import Note
 
 class NoteForm(ModelForm):
     class Meta:

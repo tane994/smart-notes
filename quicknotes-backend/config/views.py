@@ -1,18 +1,18 @@
 from django.http import HttpResponse, JsonResponse
-from quicknotes.models import Note, Collection
+from config.models import Note, Collection
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-from quicknotes.serializers import CollectionWithNotesSerializer, NoteSerializer, CollectionSerializer, UserSerializer
+from config.serializers import CollectionWithNotesSerializer, NoteSerializer, CollectionSerializer, UserSerializer
 #from django.db import connection
 from rest_framework.decorators import action, api_view, authentication_classes, permission_classes
-from rest_framework.simplejwt import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny
 
 def home(request):
     return HttpResponse('Welcome Home')
 
-@api_view('POST')
+@api_view(['POST'])
 @authentication_classes([])
 @permission_classes([AllowAny])
 def register(request):
