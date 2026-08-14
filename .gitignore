@@ -69,3 +69,6 @@ coverage.xml
 # OS
 Icon?
 ehthumbs.db
+
+# Playwright MCP artifacts
+.playwright-mcp/
