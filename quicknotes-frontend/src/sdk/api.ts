@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const jwtAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2NjU3NDIxLCJpYXQiOjE3ODY2MTQyMjEsImp0aSI6ImQ1Yjg4NTk3YjU5ZTQzNzc4Yzc0NTEyNTU2ZGY5NTljIiwidXNlcl9pZCI6IjEifQ.qBWc4mLpw6-IXQFcTzQv5ZHVLjg-HdVJHCgPWj2Ww8o';
+const jwtAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2OTk2MDY0LCJpYXQiOjE3ODY5NTI4NjQsImp0aSI6ImRlMGE1Y2NhNGM5NjQ2ZjU5YTYxN2Y1OTFlNTRhNGQ0IiwidXNlcl9pZCI6IjEifQ.mZKh_ixxUFt0GMR5x6rhflvhGnexX45Iwu7XRJZDKLM';
 
 export type Note = {
     id?: number;          // Aggiunto per flessibilità se il DRF usa 'id'
@@ -37,8 +37,10 @@ async function getHome(): Promise<string> {
     return res.data;
 }
 
-async function getNotes(): Promise<Note[]> {
-    const res = await api.get<APIResponse<Note[]> | Note[]>('/api/notes/');
+async function getNotes(params?: {
+    collection_id?: number | null
+}): Promise<Note[]> {
+    const res = await api.get<APIResponse<Note[]> | Note[]>('/api/notes/', { params });
     // Gestisce sia il caso in cui il backend incapsuli in res.data.data che res.data diretto
     return (res.data as any).data ?? res.data;
 }
@@ -83,6 +85,7 @@ async function getCollectionWithNotes(collectionId: number): Promise<Collection>
     const res = await api.get<any>(`/api/collections/${collectionId}/notes/`);
     return res.data.data ?? res.data;
 }
+
 
 async function updateCollection(collectionId: number, collection: Collection): Promise<Collection> {
     const res = await api.put<any>(`/api/collections/${collectionId}/`, collection);

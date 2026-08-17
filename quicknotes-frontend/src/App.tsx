@@ -4,81 +4,96 @@ import './App.css';
 import CreatableSelect from 'react-select/creatable';
 
 function App() {
-
   type CollectionOption = { value: number | undefined; label: string };
+
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [collections, setCollections] = useState<Collection[]>([])
-  const [collectionValue, setCollectionValue] = useState<CollectionOption | null>(null);
+  const [collections, setCollections] = useState<Collection[]>([]);
+  const [selectedCollectionId, setSelectedCollectionId] = useState<number | null>(null);
 
+  // Carica le collezioni al mount del componente
   useEffect(() => {
-      const fetchNotes = async () => {
-        const notesData = await SDK.getNotes();
-        setNotes(notesData);
-      }
-
-      const fetchCollections = async () => {
+    const fetchCollections = async () => {
+      try {
         const collectionsData = await SDK.getCollections();
         setCollections(collectionsData);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Error fetching collections');
       }
-      
-      const loadAllData = async () => {
-        try {
-          setLoading(true);
-          await Promise.all([fetchNotes(), fetchCollections()])
-          setError(null);
-        } catch (err) {
-          setError(err instanceof Error ? err.message : 'Something went wrong');
-        } finally {
-          setLoading(false);
-        }
-      }
-      loadAllData();
+    };
+
+    fetchCollections();
   }, []);
 
-  if (loading) {
-    return <div className="status-message">Loading notes...</div>;
-  }
+  // Carica e aggiorna le note al cambio della collezione selezionata
+  useEffect(() => {
+    const fetchNotes = async () => {
+      try {
+        setLoading(true);
+        const notesData = await SDK.getNotes(
+          selectedCollectionId ? { collection_id: selectedCollectionId } : {}
+        );
+        setNotes(notesData);
+        setError(null);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Error fetching notes');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (error) {
-    return <div className="status-message error">Error: {error}</div>;
-  }
+    fetchNotes();
+  }, [selectedCollectionId]);
 
-const createNewCollection = async (name: string) => {
-  console.log('create called:', name);
-  const created = await SDK.createCollection({ name });
-  console.log('created:', created);
-  setCollections((prev) => [...prev, created]);
-  setCollectionValue({ value: created.id, label: created.name });
-};
+  const createNewCollection = async (name: string) => {
+    try {
+      const newlyCreatedCollection = await SDK.createCollection({ name });
+      setCollections((prev) => [...prev, newlyCreatedCollection]);
+      setSelectedCollectionId(newlyCreatedCollection.id ?? null);
+    } catch (err) {
+      console.log('Error creating collection: ', err);
+    }
+  };
+
+  // Valore derivato per il Select (nessuno stato duplicato)
+  const selectedCollection = collections.find((c) => c.id === selectedCollectionId);
+  const collectionValue: CollectionOption | null = selectedCollection
+    ? { value: selectedCollection.id, label: selectedCollection.name ?? '' }
+    : null;
 
   return (
     <>
-      <main className="container">
-        <CreatableSelect<CollectionOption, false>
-          options={collections.map((c) => ({ value: c.id, label: c.name }))}
-          value={collectionValue}
-          onChange={(option) => setCollectionValue(option)}
-          onCreateOption={createNewCollection}
-        />
+      <CreatableSelect<CollectionOption, false>
+        options={collections.map((c) => ({ value: c.id, label: c.name }))}
+        value={collectionValue}
+        onChange={(data) => setSelectedCollectionId(data?.value ?? null)}
+        onCreateOption={createNewCollection}
+        isClearable
+      />
+
+      {error && <div className="status-message error">Error: {error}</div>}
+
+      {loading ? (
+        <div className="status-message">Loading notes...</div>
+      ) : (
         <table border={1} cellPadding={10}>
           <thead>
             <tr>
-            <th>ID</th>
-            <th>Title</th>
+              <th>ID</th>
+              <th>Title</th>
             </tr>
           </thead>
           <tbody>
-          {notes.map((note: Note) => {
-            return <tr key={note.id}>
-              <td>{note.id}</td>
-              <td>{note.title}</td>
-            </tr>
-          })}
+            {notes.map((note: Note) => (
+              <tr key={note.id}>
+                <td>{note.id}</td>
+                <td>{note.title}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      </main>
+      )}
     </>
   );
 }
