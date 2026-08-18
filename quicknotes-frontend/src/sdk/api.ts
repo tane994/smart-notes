@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const jwtAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2OTk2MDY0LCJpYXQiOjE3ODY5NTI4NjQsImp0aSI6ImRlMGE1Y2NhNGM5NjQ2ZjU5YTYxN2Y1OTFlNTRhNGQ0IiwidXNlcl9pZCI6IjEifQ.mZKh_ixxUFt0GMR5x6rhflvhGnexX45Iwu7XRJZDKLM';
+const jwtAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3MDgxMTAxLCJpYXQiOjE3ODcwMzc5MDEsImp0aSI6ImZhYTQwY2E4MDVmNTQ2MzBhN2Y5ZGQxYjgwNDY4NjkyIiwidXNlcl9pZCI6IjEifQ.26syJ6JmBwskXTwD5E1GxHt-W10s03YjuQWLWBecN18';
 
 export type Note = {
     id?: number;          // Aggiunto per flessibilità se il DRF usa 'id'

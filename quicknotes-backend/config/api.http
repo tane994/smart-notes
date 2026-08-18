@@ -28,7 +28,7 @@ POST {{baseUrl}}/api/auth/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTU0NDY2MiwiaWF0IjoxNzg2OTUyNjYyLCJqdGkiOiIwNzgxNTFhMWQ1Zjc0ZGFmODlhODA1ZGE3NTBiMDQ4NCIsInVzZXJfaWQiOiIxIn0.ffNR8RPGsQuJXrbvmgoXGqD5BHhMkDSJzw11ZOgR7p8"
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTYyOTg3OSwiaWF0IjoxNzg3MDM3ODc5LCJqdGkiOiI4MTUwMGI5MWIyNjY0NWM0OTBkMTAwNmJjMDY0OGNhOSIsInVzZXJfaWQiOiIxIn0.EggrUxWNJFdoKbfrHGnesEUGX7XcJy1B-ysxs-iGfYY"
 }
 
 ### Get collections

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import SDK, { type Collection, type Note } from './sdk/api';
 import './App.css';
 import CreatableSelect from 'react-select/creatable';
+import { Link, useNavigate } from 'react-router-dom';
 
 function App() {
   type CollectionOption = { value: number | undefined; label: string };
@@ -11,6 +12,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [collections, setCollections] = useState<Collection[]>([]);
   const [selectedCollectionId, setSelectedCollectionId] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   // Carica le collezioni al mount del componente
   useEffect(() => {
@@ -88,12 +90,14 @@ function App() {
             {notes.map((note: Note) => (
               <tr key={note.id}>
                 <td>{note.id}</td>
-                <td>{note.title}</td>
+                <td><Link to={`/edit/${note.id}`}>{note.title}</Link></td>
               </tr>
             ))}
           </tbody>
         </table>
+        
       )}
+      <button onClick={() => navigate('/edit')}>+ Create New Note</button>
     </>
   );
 }
