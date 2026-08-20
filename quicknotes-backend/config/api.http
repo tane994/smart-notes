@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:8000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2OTk2MDY0LCJpYXQiOjE3ODY5NTI4NjQsImp0aSI6ImRlMGE1Y2NhNGM5NjQ2ZjU5YTYxN2Y1OTFlNTRhNGQ0IiwidXNlcl9pZCI6IjEifQ.mZKh_ixxUFt0GMR5x6rhflvhGnexX45Iwu7XRJZDKLM
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3MjcxMjk2LCJpYXQiOjE3ODcyMjgwOTYsImp0aSI6IjRjYjBjM2FiM2Y5ZjRiZGNhNGRlZmUwYmZjYTViZDMyIiwidXNlcl9pZCI6IjEifQ.UEqRYieufkx_x70g1IcfXRn0-GzCy80tY6TpYwQCw1Y
 
 GET {{baseUrl}}/api/notes
 Authorization: Bearer {{token}}
@@ -28,7 +28,7 @@ POST {{baseUrl}}/api/auth/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTYyOTg3OSwiaWF0IjoxNzg3MDM3ODc5LCJqdGkiOiI4MTUwMGI5MWIyNjY0NWM0OTBkMTAwNmJjMDY0OGNhOSIsInVzZXJfaWQiOiIxIn0.EggrUxWNJFdoKbfrHGnesEUGX7XcJy1B-ysxs-iGfYY"
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTcxMjkxMCwiaWF0IjoxNzg3MTIwOTEwLCJqdGkiOiIwMjJhYjMwOGZhMTA0ODZkYjI5NDdlZTMyYTY2ZTdjZiIsInVzZXJfaWQiOiIxIn0.0NjqD-CGLYfuZxKdPjVpShQ1eKcVDKnTAkalRpH4kbQ"
 }
 
 ### Get collections

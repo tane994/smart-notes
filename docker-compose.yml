@@ -10,6 +10,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      - PYTHONUNBUFFERED=1
     command: >
       sh -c "python manage.py migrate --no-input &&
              python manage.py runserver 0.0.0.0:8000"
@@ -32,11 +34,14 @@ services:
   frontend:
     build: ./quicknotes-frontend
     volumes: 
-      - ./quicknotes-frontend:/app          # ✅ Fixed path (./ instead of ..)
-      - /app/node_modules                  # Prevents host node_modules from overriding container
+      - ./quicknotes-frontend:/app
+      - /app/node_modules
     ports:
       - "5173:5173"
-    command: sh -c 'npm run dev -- --host 0.0.0.0'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: npm run dev -- --host 0.0.0.0
 
 volumes:
   postgres_data:
