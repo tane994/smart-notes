@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.btn {
+    @apply px-4 min-h-10 m-1 w-30 rounded bg-blue-600 text-white;
+}
+
+.btn-disabled {
+    @apply px-4 min-h-10 m-1 w-30 rounded bg-gray-600 text-white;
+}
+
+.btn-delete {
+    @apply px-4 min-h-10 m-1 w-30 rounded bg-red-600 text-white;
+}
+
+.navigate-pages-buttons {
+    @apply grid grid-cols-3 items-center;
+}
+
+.pagination-group {
+    @apply flex justify-center gap-2 col-start-2;
+}

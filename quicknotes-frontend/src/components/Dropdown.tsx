@@ -75,60 +75,65 @@ const Dropdown = ({ value, onChange }: Props) => {
     }
   };
 
-  const handleDeleteCollection = async() => {
+  const handleDeleteCollection = async () => {
     try {
-      await SDK.deleteCollection(value!)
+      await SDK.deleteCollection(value!);
       const data = await SDK.getCollections();
       setCollections(data);
       setShowModal(false);
-      onChange(null)
+      onChange(null);
     } catch (err) {
-      console.log("something went wrong", err)
+      console.log("something went wrong", err);
     }
-  }
+  };
 
   return (
     <div>
       {error && <div className="status-message error">Error: {error}</div>}
-      <CreatableSelect
-        isClearable
-        isDisabled={loading}
-        placeholder="Filter by Collection"
-        options={collections.map((collection) => ({
-          value: collection.id,
-          label: collection.name,
-        }))}
-        value={
-          value
-            ? {
-                value,
-                label: collections.find((collection) => collection.id === value)
-                  ?.name,
-              }
-            : null
-        }
-        onChange={(data) => {
-          setEditValue("");
-          setShowModal(false);
-          onChange(data?.value ?? null);
-        }}
-        onCreateOption={handleCreateOption}
-      />
-      {value ? (
-        <button
-          onClick={() => {
-            setShowModal(true);
-            const currentCollectionName = collections.find(
-              (collection) => collection.id === value,
-            )?.name;
-            setEditValue(currentCollectionName ?? "");
+      <div className='flex justify-left'>
+        <CreatableSelect
+          className="w-120"
+          isClearable
+          isDisabled={loading}
+          placeholder="Filter by Collection"
+          options={collections.map((collection) => ({
+            value: collection.id,
+            label: collection.name,
+          }))}
+          value={
+            value
+              ? {
+                  value,
+                  label: collections.find(
+                    (collection) => collection.id === value,
+                  )?.name,
+                }
+              : null
+          }
+          onChange={(data) => {
+            setEditValue("");
+            setShowModal(false);
+            onChange(data?.value ?? null);
           }}
-        >
-          Edit Collection
-        </button>
-      ) : (
-        <></>
-      )}
+          onCreateOption={handleCreateOption}
+        />
+        {value ? (
+          <button
+            className="btn"
+            onClick={() => {
+              setShowModal(true);
+              const currentCollectionName = collections.find(
+                (collection) => collection.id === value,
+              )?.name;
+              setEditValue(currentCollectionName ?? "");
+            }}
+          >
+            Edit Collection
+          </button>
+        ) : (
+          <></>
+        )}
+      </div>
       {showModal ? (
         <div>
           <input
@@ -138,9 +143,15 @@ const Dropdown = ({ value, onChange }: Props) => {
             }}
           />
           <br />
-          <button onClick={handleCollectionUpdate}>Save</button>
-          <button onClick={() => setShowModal(false)}>Cancel</button>
-          <button onClick={handleDeleteCollection}>Delete Collection</button>
+          <button className="btn" onClick={handleCollectionUpdate}>
+            Save
+          </button>
+          <button className="btn" onClick={() => setShowModal(false)}>
+            Cancel
+          </button>
+          <button className="btn-delete" onClick={handleDeleteCollection}>
+            Delete Collection
+          </button>
         </div>
       ) : (
         <></>
