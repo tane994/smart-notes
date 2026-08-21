@@ -18,7 +18,7 @@ const fetchNotes = useCallback(
   async (url: string | null) => {
     try {
       setLoading(true);
-      const params = selectedCollectionId ? { collection_id: selectedCollectionId } : undefined;
+      const params = selectedCollectionId ? { collection_id: selectedCollectionId, page_size: 10 } : {page_size: 10};
       const notesData = await SDK.getNotes(url, params);
       setPrevious(notesData.previous);
       setNext(notesData.next);
@@ -39,7 +39,7 @@ const fetchNotes = useCallback(
   }, [selectedCollectionId, fetchNotes]);
 
   return (
-    <>
+    <div className='p-6 flex flex-col gap-6 max-w-5xl'>
       <Dropdown value={selectedCollectionId} onChange={setSelectedCollectionId}/>
 
       {error && <div className="status-message error">Error: {error}</div>}
@@ -48,18 +48,18 @@ const fetchNotes = useCallback(
         <div className="status-message">Loading notes...</div>
       ) : (
         <>
-          <table border={1} cellPadding={10}>
+          <table >
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Title</th>
+                <th className="border p-3">ID</th>
+                <th className="border p-3">Title</th>
               </tr>
             </thead>
             <tbody>
               {notes.map((note: Note) => (
                 <tr key={note.id}>
-                  <td>{note.id}</td>
-                  <td><Link to={`/edit/${note.id}`}>{note.title}</Link></td>
+                  <td className="border p-3">{note.id}</td>
+                  <td className="border p-3"><Link to={`/edit/${note.id}`}>{note.title}</Link></td>
                 </tr>
               ))}
             </tbody>
@@ -70,7 +70,7 @@ const fetchNotes = useCallback(
           <button onClick={() => navigate('/edit', {state: {collectionId: selectedCollectionId}})}>+ Create New Note</button>
         </>
       )}
-    </>
+    </div>
   );
 }
 

@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const jwtAccessToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3MjcxMjk2LCJpYXQiOjE3ODcyMjgwOTYsImp0aSI6IjRjYjBjM2FiM2Y5ZjRiZGNhNGRlZmUwYmZjYTViZDMyIiwidXNlcl9pZCI6IjEifQ.UEqRYieufkx_x70g1IcfXRn0-GzCy80tY6TpYwQCw1Y";
-
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3MzQ1MTgyLCJpYXQiOjE3ODczMDE5ODIsImp0aSI6IjE0OTczMGQ3Y2I4NzRlNjVhMmQwMTQ4NGMyZTBiNWQwIiwidXNlcl9pZCI6IjIifQ.XlJTCX5NbtffP3Rf093gUFWrsMcibzurHOCjP2oAJeE";
 export type Note = {
   id?: number; // Aggiunto per flessibilità se il DRF usa 'id'
   note_id?: number; // Mantenuto per compatibilità
@@ -42,6 +41,7 @@ async function getNotes(
   url?: string | null,
   params?: {
     collection_id?: number | null;
+    page_size?: number | null;
   },
 ): Promise<PaginatedResponse<Note>> {
   if (url) {

@@ -5,10 +5,15 @@ import { programmingNotes, financeNotes } from '../mock-data/mockData';
 const idOf = (x: any): number => x?.id ?? x?.collection_id ?? x?.note_id;
 
 async function wipe() {
-    const notes = await SDK.getNotes();
+    const rawNotes = await SDK.getNotes();
+    // Gestisce sia risposte trasparenti (Array) che paginate ({ results: [...] })
+    const notes: Note[] = Array.isArray(rawNotes) ? rawNotes : (rawNotes as any)?.results ?? [];
+    
     for (const n of notes) await SDK.deleteNote(idOf(n));
 
-    const cols = await SDK.getCollections();
+    const rawCols = await SDK.getCollections();
+    const cols: Collection[] = Array.isArray(rawCols) ? rawCols : (rawCols as any)?.results ?? [];
+    
     for (const c of cols) await SDK.deleteCollection(idOf(c));
 
     console.log(`🧹 wipe: ${notes.length} note, ${cols.length} collection eliminate`);
