@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const jwtAccessToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3MzQ1MTgyLCJpYXQiOjE3ODczMDE5ODIsImp0aSI6IjE0OTczMGQ3Y2I4NzRlNjVhMmQwMTQ4NGMyZTBiNWQwIiwidXNlcl9pZCI6IjIifQ.XlJTCX5NbtffP3Rf093gUFWrsMcibzurHOCjP2oAJeE";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3NDM3NjA1LCJpYXQiOjE3ODczOTQ0MDUsImp0aSI6IjBkZDQ3YTgyMDZiZTQ2ODlhYzRmNGExM2VlNDhiNjc3IiwidXNlcl9pZCI6IjIifQ.MiBFnmRGvSe90ijA9g6RMfvi5IbBLSrBa-w_V9FElYY";
 export type Note = {
   id?: number; // Aggiunto per flessibilità se il DRF usa 'id'
   note_id?: number; // Mantenuto per compatibilità
