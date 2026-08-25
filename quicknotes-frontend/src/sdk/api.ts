@@ -1,5 +1,15 @@
 import axios from "axios";
 
+// ============================================================================
+// Types
+// ============================================================================
+
+export type Collection = {
+  id?: number;
+  collection_id?: number;
+  name: string;
+};
+
 export type Note = {
   id?: number; // Aggiunto per flessibilità se il DRF usa 'id'
   note_id?: number; // Mantenuto per compatibilità
@@ -9,17 +19,22 @@ export type Note = {
   collection_data?: Collection | null;
 };
 
-export type Collection = {
-  id?: number;
-  collection_id?: number;
-  name: string;
-};
-
 export type PaginatedResponse<T> = {
   next: string | null;
   previous: string | null;
   data: T[];
 };
+
+export type User = {
+  id?: number;
+  email?: string;
+  password?: string;
+  username: string;
+};
+
+// ============================================================================
+// Axios instance
+// ============================================================================
 
 const api = axios.create({
   baseURL: "http://localhost:8000",
@@ -28,6 +43,11 @@ const api = axios.create({
   },
 });
 
+// ============================================================================
+// Interceptors
+// ============================================================================
+
+// --- Request: attach access token ---
 api.interceptors.request.use(
   (config) => {
     const access = localStorage.getItem("access");
@@ -39,6 +59,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
+// --- Response: refresh token on 401 (single-flight) ---
 let isRefreshing = false;
 let refreshPromise: Promise<string> | null = null;
 
@@ -84,11 +105,18 @@ api.interceptors.response.use(
   },
 );
 
-// Metodi per le Note
+// ============================================================================
+// API — Misc
+// ============================================================================
+
 async function getHome(): Promise<string> {
   const res = await api.get<string>("/");
   return res.data;
 }
+
+// ============================================================================
+// API — Notes
+// ============================================================================
 
 async function getNotes(
   url?: string | null,
@@ -126,7 +154,10 @@ async function deleteNote(noteId: number): Promise<string> {
   return `Note with id ${noteId} deleted successfully`;
 }
 
-// Metodi per le Collection
+// ============================================================================
+// API — Collections
+// ============================================================================
+
 async function getCollections(): Promise<Collection[]> {
   const res = await api.get<any>("/api/collections/");
   return res.data.data ?? res.data;
@@ -137,15 +168,15 @@ async function getCollection(collectionId: number): Promise<Collection> {
   return res.data.data ?? res.data;
 }
 
-async function createCollection(collection: Collection): Promise<Collection> {
-  const res = await api.post<any>("/api/collections/", collection);
-  return res.data.data ?? res.data;
-}
-
 async function getCollectionWithNotes(
   collectionId: number,
 ): Promise<Collection> {
   const res = await api.get<any>(`/api/collections/${collectionId}/notes/`);
+  return res.data.data ?? res.data;
+}
+
+async function createCollection(collection: Collection): Promise<Collection> {
+  const res = await api.post<any>("/api/collections/", collection);
   return res.data.data ?? res.data;
 }
 
@@ -164,13 +195,22 @@ async function deleteCollection(collectionId: number): Promise<void> {
   await api.delete(`/api/collections/${collectionId}/`);
 }
 
+// ============================================================================
+// Export
+// ============================================================================
+
 export default {
+  // Misc
   getHome,
+
+  // Notes
   getNotes,
   getNote,
+  createNote,
   updateNote,
   deleteNote,
-  createNote,
+
+  // Collections
   getCollections,
   getCollection,
   getCollectionWithNotes,
