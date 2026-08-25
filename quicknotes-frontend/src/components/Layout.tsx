@@ -23,7 +23,7 @@ export default function Example() {
               </svg>
             </a>
           </div>
-          <a href="/account" className="font-semibold text-white">
+          <a href="/login" className="font-semibold text-white">
             Log in →
           </a>
         </nav>

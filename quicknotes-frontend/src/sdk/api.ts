@@ -106,6 +106,33 @@ api.interceptors.response.use(
 );
 
 // ============================================================================
+// API — Auth
+// ============================================================================
+
+
+async function register(data: User) {
+  const res = await api.post('/api/auth/register/', data);
+  
+  if(res.data.access && res.data.refresh) {
+    localStorage.setItem('access', res.data.access);
+    localStorage.setItem('refresh', res.data.refresh);
+  }
+
+  return res.data;
+}
+
+async function login(data: User) {
+    const res = await api.post('/api/auth/login/', data);
+  
+  if(res.data.access && res.data.refresh) {
+    localStorage.setItem('access', res.data.access);
+    localStorage.setItem('refresh', res.data.refresh);
+  }
+
+  return res.data;
+}
+
+// ============================================================================
 // API — Misc
 // ============================================================================
 
@@ -202,6 +229,10 @@ async function deleteCollection(collectionId: number): Promise<void> {
 export default {
   // Misc
   getHome,
+
+  // Auth
+  register,
+  login,
 
   // Notes
   getNotes,

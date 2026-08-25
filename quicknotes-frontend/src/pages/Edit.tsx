@@ -1,7 +1,7 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import SDK from "./sdk/api";
-import Dropdown from "./components/Dropdown";
+import SDK from "../sdk/api";
+import Dropdown from "../components/Dropdown";
 
 const Edit = () => {
   const { id } = useParams();
