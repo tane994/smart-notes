@@ -1,7 +1,7 @@
 @baseUrl = http://localhost:8000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3MzQ1MTgyLCJpYXQiOjE3ODczMDE5ODIsImp0aSI6IjE0OTczMGQ3Y2I4NzRlNjVhMmQwMTQ4NGMyZTBiNWQwIiwidXNlcl9pZCI6IjIifQ.XlJTCX5NbtffP3Rf093gUFWrsMcibzurHOCjP2oAJeE
+Authorization: Bearer {{token}}
 
-GET http://localhost:8000/api/notes
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2NDM4NTcwLCJpYXQiOjE3ODY0MzgyNzAsImp0aSI6IjY5NGU1OTc1YWJkNjQ0NGJiOGU2ZDQzYjkwYmI2Njk0IiwidXNlcl9pZCI6IjEifQ.NrmSYUmd9iGQ7-DRw3MLSgH1x92ka1dTBrEJl0RPDek
 ### Register
 POST {{baseUrl}}/api/auth/register/
 Content-Type: application/json
@@ -21,20 +21,18 @@ Content-Type: application/json
     "password": "password123"
 }
 
-
-### Refresh
 ### Refresh Token
 POST {{baseUrl}}/api/auth/refresh/
 Content-Type: application/json
 
 {
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTIwNDYwNiwiaWF0IjoxNzg2NjEyNjA2LCJqdGkiOiI4YWNiMTIzZTkwZjQ0ZTRmODQ5ODM5Y2U1ZmNlNmFiYSIsInVzZXJfaWQiOiIxIn0.vMj19XSsABN1OhPoaOeXEjHmKXREw9yFpPq1cO_ZdXs"
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTg5Mzk0MCwiaWF0IjoxNzg3MzAxOTQwLCJqdGkiOiI5ZGU3MjU3YWQ2NGY0MjQxOTlhNjk2NzY5ZDA2NmU4MiIsInVzZXJfaWQiOiIyIn0.xQFFFX9NMmP39g9wplKxJMHxS6s-HykVQvfJw2fcDAw"
 }
 
 ### Get collections
-GET http://localhost:8000/api/collections
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2NTI4OTYzLCJpYXQiOjE3ODY1Mjg2NjMsImp0aSI6IjRlY2ZjY2Q0MzdlZTQ4MGE4YzQxNjlmNTA1MDA3YmIzIiwidXNlcl9pZCI6IjEifQ.NplU4GOF0c_HXBGgMq99HWWo9Mo4C6R9n98MiGwjMDo
+GET {{baseUrl}}/api/collections
+Authorization: Bearer {{token}}
 
 ### Get notes
-GET http://localhost:8000/api/notes
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg2NTQxMDEzLCJpYXQiOjE3ODY1NDA3MTMsImp0aSI6IjUyMDI5OGVhN2RmZjQzYTdiZGU5ZWI0OTA1ZTZlMDYzIiwidXNlcl9pZCI6IjEifQ.LAgvccdN3l1ICS3KOGR2oWKO6voQS_-p_UyH3MMrXzQ
+GET {{baseUrl}}/api/notes
+Authorization: Bearer {{token}}
