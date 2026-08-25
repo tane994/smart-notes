@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const jwtAccessToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg3NDM3NjA1LCJpYXQiOjE3ODczOTQ0MDUsImp0aSI6IjBkZDQ3YTgyMDZiZTQ2ODlhYzRmNGExM2VlNDhiNjc3IiwidXNlcl9pZCI6IjIifQ.MiBFnmRGvSe90ijA9g6RMfvi5IbBLSrBa-w_V9FElYY";
 export type Note = {
   id?: number; // Aggiunto per flessibilità se il DRF usa 'id'
   note_id?: number; // Mantenuto per compatibilità
@@ -27,9 +25,64 @@ const api = axios.create({
   baseURL: "http://localhost:8000",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${jwtAccessToken}`,
   },
 });
+
+api.interceptors.request.use(
+  (config) => {
+    const access = localStorage.getItem("access");
+    if (access) {
+      config.headers.Authorization = `Bearer ${access}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
+
+let isRefreshing = false;
+let refreshPromise: Promise<string> | null = null;
+
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    if (
+      error.response?.status == 401 &&
+      !error.config.url.includes("/api/auth/refresh") &&
+      !error.config._retry
+    ) {
+      error.config._retry = true;
+
+      if (!isRefreshing) {
+        isRefreshing = true;
+
+        refreshPromise = (async () => {
+          try {
+            const refresh = localStorage.getItem("refresh");
+            const res = await api.post("/api/auth/refresh/", { refresh });
+
+            const newAccess = res.data.access;
+            const newRefresh = res.data.refresh;
+
+            localStorage.setItem("access", newAccess);
+            localStorage.setItem("refresh", newRefresh);
+
+            return newAccess;
+          } finally {
+            isRefreshing = false;
+          }
+        })();
+      }
+
+      const newAccess = await refreshPromise;
+
+      error.config.headers.Authorization = `Bearer ${newAccess}`;
+      return api.request(error.config);
+    }
+    return Promise.reject(error);
+  },
+);
 
 // Metodi per le Note
 async function getHome(): Promise<string> {
