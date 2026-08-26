@@ -1,6 +1,10 @@
 import { Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Example() {
+  const auth = useContext(AuthContext)!;
+  
   return (
     <div>
       <header className="bg-blue-900">
@@ -23,9 +27,18 @@ export default function Example() {
               </svg>
             </a>
           </div>
-          <a href="/login" className="font-semibold text-white">
-            Log in →
-          </a>
+          {auth?.isAuthenticated ? (
+            <a
+              className="font-semibold text-white"
+              onClick={auth?.logout}
+            >
+              Logout
+            </a>
+          ) : (
+            <a href="/login" className="font-semibold text-white">
+              Log in →
+            </a>
+          )}
         </nav>
       </header>
       <Outlet />
