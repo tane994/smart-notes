@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404, JsonResponse
+from django.http import Http404 
 from django.shortcuts import redirect, render, get_object_or_404
 from config.models import Note
 from quicknotes_site.forms import NoteForm
