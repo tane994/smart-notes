@@ -1,6 +1,9 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from config.models.note import Note
+from quicknotes_api.models.note import Note
 from quicknotes_site.forms import NoteForm
+
+def home(request):
+    return render(request, 'home.html')
 
 def notes(request):
     """Lista di tutte le note con il form per crearne una nuova."""

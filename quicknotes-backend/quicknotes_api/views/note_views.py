@@ -1,11 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
-from models.note import Note
-from serializers.note_serializer import NoteSerializer
+from quicknotes_api.models.note import Note
 from rest_framework.response import Response
-from config.models import Note
+from quicknotes_api.models import Note
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-from config.serializers import  NoteSerializer
+from quicknotes_api.serializers.note_serializer import  NoteSerializer
 #from django.db import connection
 
 class NoteViewSet(ModelViewSet):

@@ -1,10 +1,10 @@
 from django.urls import path
-from config import views_site as views
+from quicknotes_api.views import site_views as views
 
 urlpatterns = [
     path('', views.notes, name='notes'),
     path('<int:note_id>/', views.note, name='note'),
     path('<int:note_id>/edit/', views.edit, name='edit'),
     path('<int:note_id>/delete/', views.delete, name='delete'),
-    path('add', views.add, name='add'),
+    path('add/', views.add, name='add'),
 ]

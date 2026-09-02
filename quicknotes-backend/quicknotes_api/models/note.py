@@ -1,5 +1,5 @@
 from django.db import models
-from collection import Collection
+from .collection import Collection
 
 class Note(models.Model):
     title = models.CharField(max_length=255)

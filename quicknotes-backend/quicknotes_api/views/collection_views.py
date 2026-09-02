@@ -1,7 +1,7 @@
-from config.models.collection import  Collection
+from quicknotes_api.models.collection import  Collection
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-from config.serializers import CollectionWithNotesSerializer, CollectionSerializer
+from quicknotes_api.serializers.collection_serializer import CollectionWithNotesSerializer, CollectionSerializer
 #from django.db import connection
 from rest_framework.decorators import action
 

@@ -38,7 +38,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'config',
+    'quicknotes_api',
     'quicknotes_site',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -89,7 +89,7 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = 'quicknotes_api.urls.urls'
 
 TEMPLATES = [
     {
@@ -106,7 +106,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'quicknotes_api.config.wsgi.application'
 
 
 # Database
@@ -166,7 +166,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'config.pagination.CustomPagination',
+    'DEFAULT_PAGINATION_CLASS': 'quicknotes_api.pagination.pagination.CustomPagination',
     'PAGE_SIZE': 20,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
