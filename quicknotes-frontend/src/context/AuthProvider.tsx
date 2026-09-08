@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
-import SDK, { type User } from "../sdk/api.ts";
+import SDK, { type User } from "../sdk/api";
 
 export const AuthProvider = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(

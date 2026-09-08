@@ -1,7 +1,8 @@
 from rest_framework.serializers import ModelSerializer
 from quicknotes_api.models.collection import Collection
 
-# 1. Definisci prima la classe base che non ha dipendenze verso le note
+# ModelSerializer automatizza la creazione dei campi e la logica CRUD basandosi sul modello.
+# L'ereditarietà (ModelSerializer) serve a integrare le funzioni di validazione e conversione di DRF.
 class CollectionSerializer(ModelSerializer):
     class Meta:
         model = Collection
@@ -11,6 +12,7 @@ class CollectionSerializer(ModelSerializer):
 from quicknotes_api.serializers.note_serializer import NoteSerializer
 
 
+# Serializer esteso che include in sola lettura l'elenco delle note collegate alla collezione.
 class CollectionWithNotesSerializer(ModelSerializer):
     notes = NoteSerializer(many=True, read_only=True)
 
