@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
-import SDK, { type User } from "../sdk/api";
+import SDK, { type LoginData, type RegisterData } from "../sdk/api";
 
 export const AuthProvider = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
-    !!localStorage.getItem("access"),
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!localStorage.getItem("access"),);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -16,9 +14,9 @@ export const AuthProvider = () => {
     navigate("/login");
   };
 
-  const login = async (user: User) => {
+  const login = async (loginData: LoginData) => {
     try {
-      const res = await SDK.login(user);
+      const res = await SDK.login(loginData);
       localStorage.setItem("access", res.access);
       localStorage.setItem("refresh", res.refresh);
       setIsAuthenticated(true);
@@ -28,9 +26,9 @@ export const AuthProvider = () => {
     }
   };
 
-  const register = async (user: User) => {
+  const register = async (registerData: RegisterData) => {
     try {
-      const res = await SDK.register(user);
+      const res = await SDK.register(registerData);
       localStorage.setItem("access", res.access);
       localStorage.setItem("refresh", res.refresh);
       navigate("/");

@@ -9,9 +9,7 @@ function App() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedCollectionId, setSelectedCollectionId] = useState<
-    number | null
-  >(null);
+  const [selectedCollectionId, setSelectedCollectionId] = useState<number | null>(null);
   const [next, setNext] = useState<string | null>("");
   const [previous, setPrevious] = useState<string | null>("");
   const navigate = useNavigate();
@@ -20,10 +18,9 @@ function App() {
     async (url: string | null) => {
       try {
         setLoading(true);
-        const params = selectedCollectionId
-          ? { collection_id: selectedCollectionId, page_size: 10 }
-          : { page_size: 10 };
+        const params = selectedCollectionId ? { collection_id: selectedCollectionId, page_size: 10 } : { page_size: 10 };
         const notesData = await SDK.getNotes(url, params);
+
         setPrevious(notesData.previous);
         setNext(notesData.next);
         setNotes(notesData.data);

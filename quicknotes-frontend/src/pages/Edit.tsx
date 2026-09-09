@@ -14,9 +14,7 @@ const Edit = () => {
   const [error, setError] = useState<string | null>(null);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [collection, setCollection] = useState<number | null>(
-    collectionId ? collectionId : null,
-  );
+  const [collection, setCollection] = useState<number | null>(collectionId ? collectionId : null);
 
   useEffect(() => {
     if (!id) return;
@@ -25,11 +23,13 @@ const Edit = () => {
       try {
         setLoading(true);
         const noteData = await SDK.getNote(Number(id));
+
         if (noteData) {
           setTitle(noteData.title ?? "");
           setContent(noteData.content ?? "");
           setCollection(noteData.collection ?? null);
         }
+        
         setError(null);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Error fetching note");
@@ -53,7 +53,7 @@ const Edit = () => {
     try {
       setSaving(true);
       setError(null);
-
+      
       const payload = { title, content, collection };
 
       if (id) {
