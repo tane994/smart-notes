@@ -2,32 +2,29 @@ import { api } from "../client";
 import { type Note, type PaginatedResponse, type GetNotesParams } from "../types";
 
 export const notesService = {
+	
 	async getNotes(url?: string | null, params?: GetNotesParams): Promise<PaginatedResponse<Note>> {
 		const endpoint = url ?? "/api/notes/";
-		const res = await api.get<PaginatedResponse<Note>>(endpoint, { params });
-		return res.data;
+		const response = await api.get<PaginatedResponse<Note>>(endpoint, { params });
+		return response.data;
 	},
 
 	async getNote(noteId: number): Promise<Note> {
-		const res = await api.get<unknown>(`/api/notes/${noteId}/`);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Note) : (data as Note);
+		const response = await api.get<Note>(`/api/notes/${noteId}/`);
+		return response.data;
 	},
 
 	async createNote(note: Note): Promise<Note> {
-		const res = await api.post<unknown>("/api/notes/", note);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Note) : (data as Note);
+		const response = await api.post<Note>("/api/notes/", note);
+		return response.data;
 	},
 
 	async updateNote(noteId: number, note: Note): Promise<Note> {
-		const res = await api.put<unknown>(`/api/notes/${noteId}/`, note);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Note) : (data as Note);
+		const response = await api.put<Note>(`/api/notes/${noteId}/`, note);
+		return response.data;
 	},
 
-	async deleteNote(noteId: number): Promise<string> {
+	async deleteNote(noteId: number): Promise<void> {
 		await api.delete(`/api/notes/${noteId}/`);
-		return `Note with id ${noteId} deleted successfully`;
 	},
 };

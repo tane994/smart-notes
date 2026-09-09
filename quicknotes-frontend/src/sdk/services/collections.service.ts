@@ -3,33 +3,28 @@ import { type Collection } from "../types";
 
 export const collectionsService = {
 	async getCollections(): Promise<Collection[]> {
-		const res = await api.get<unknown>("/api/collections/");
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Collection[]) : (data as Collection[]);
+		const response = await api.get<Collection[]>("/api/collections/");
+		return response.data;
 	},
 
 	async getCollection(collectionId: number): Promise<Collection> {
-		const res = await api.get<unknown>(`/api/collections/${collectionId}/`);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Collection) : (data as Collection);
+		const response = await api.get<Collection>(`/api/collections/${collectionId}/`);
+		return response.data;
 	},
 
 	async getCollectionWithNotes(collectionId: number): Promise<Collection> {
-		const res = await api.get<unknown>(`/api/collections/${collectionId}/notes/`);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Collection) : (data as Collection);
+		const response = await api.get<Collection>(`/api/collections/${collectionId}/notes/`);
+		return response.data;
 	},
 
 	async createCollection(collection: Collection): Promise<Collection> {
-		const res = await api.post<unknown>("/api/collections/", collection);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Collection) : (data as Collection);
+		const response = await api.post<Collection>("/api/collections/", collection);
+		return response.data;
 	},
 
 	async updateCollection(collectionId: number, collection: Collection): Promise<Collection> {
-		const res = await api.put<unknown>(`/api/collections/${collectionId}/`, collection);
-		const data = res.data;
-		return data && typeof data === "object" && "data" in data ? (data.data as Collection) : (data as Collection);
+		const response = await api.put<Collection>(`/api/collections/${collectionId}/`, collection);
+		return response.data;
 	},
 
 	async deleteCollection(collectionId: number): Promise<void> {

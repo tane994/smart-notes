@@ -22,8 +22,18 @@ export type PaginatedResponse<T> = {
 export type User = {
 	id?: number;
 	email?: string;
-	password?: string;
 	username: string;
+};
+
+export type LoginData = {
+	username: string;
+	password: string;
+};
+
+export type RegisterData = {
+	username: string;
+	email: string;
+	password: string;
 };
 
 export type GetNotesParams = {
